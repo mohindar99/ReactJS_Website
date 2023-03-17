@@ -1,0 +1,10 @@
+.myleft{
+   display:flex;
+    height: 100vh;
+    background-color: hsla(180, 20%, 95%, 0.858);
+    margin: 0px;
+}
+
+html, body {
+    min-height: 100%;
+}

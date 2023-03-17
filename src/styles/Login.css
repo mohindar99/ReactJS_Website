@@ -1,0 +1,56 @@
+.outer{
+    margin: -420px 30px 0px 840px;
+    width:300px;
+    height:320px;
+    padding:30px 30px 30px 15px;
+    font-family: 'Jost', sans-serif;
+    background-color:white;
+}
+.photo2{
+    width:400px;
+    height:400px;
+    margin:100px 20px 30px 50px;
+}
+
+.spam5{
+    margin-left:40px;
+}
+.reg{
+    color:red;
+    font-weight:900;
+    margin-left: 5px;
+}
+.under1{
+    text-decoration: none;
+}
+.signin{
+    font-weight: bold;
+    padding-top: 3px;
+    margin-top: -20px;
+}
+.check{
+    margin-top: 10px;
+    margin-bottom: 10px;;
+}
+.reg1{
+    font-weight:900;
+}
+.email{
+    color:rgb(127, 124, 124);
+    margin-bottom:0px;
+}
+.inputbox{
+    width:290px;
+    height:29px; 
+}
+.pass{
+    color:rgb(127, 124, 124);
+    margin-top:20px;
+    margin-bottom: 0px;
+}
+
+.inputbox1{
+    width:290px;    
+    height:29px;
+}
+

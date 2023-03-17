@@ -1,0 +1,57 @@
+.bor{
+    list-style-type: none ;
+}
+li{
+    margin-bottom: 5px;
+}
+.dash{
+    color:white;
+    width:3px;
+    height:2px;
+    padding-top:2px;
+    margin-left:20px;
+    margin-bottom:-2px;
+}
+.middle{
+    text-align: center;
+}
+
+.under1{
+    color:white;
+    margin-left:1px;
+    margin-bottom: 2px;
+    padding-top:2px;
+    height:200px;
+}
+.idea{
+    padding-bottom: 10px;
+    margin-top:-20px;
+    font-family: 'Tilt Neon';
+}
+.outside{
+    width:220px;
+    height:580px;
+    background-color: #241270;
+    margin-top: 0px;
+    border:3px solid #241270; 
+}
+.space1{
+    margin-left: -60px;
+    padding-top: -2px;
+    height:30px;
+   padding-bottom: 5px;
+}
+.logo{
+    text-align:center;
+    color:white;
+    font-family: 'DM Serif Display', serif;
+    letter-spacing: 2px;
+}
+.space{
+    margin-left: -60px;  
+}
+.under{
+    color:white;
+    font-family: 'Tilt Neon', cursive;
+    margin-left: 2px;;
+}
