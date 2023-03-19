@@ -1,0 +1,56 @@
+.over{
+    display:flex;
+}
+.contentdiv{
+    width:1000px;
+    font-family: 'Nunito', sans-serif;
+}
+.dash{
+    width:200px;
+}
+.mydisplay{
+    display:flex;
+}
+.dataline{
+    margin-left: -13px;
+    margin-top: -8px;
+}
+
+.datadisplay1{
+    margin-left: 20px;
+    width:220px;
+    height:110px;
+    padding-left: 10px;
+    color:white;
+    background-color: rgb(27, 27, 163);
+}
+.datadisplay2{
+    margin-left: 20px;
+    width:220px;
+    height:110px;
+    padding-left: 10px;
+    color:white;
+    background-color: rgb(198, 195, 9);
+}
+.datadisplay3{
+    margin-left: 20px;
+    width:220px;
+    height:110px;
+    padding-left: 10px;
+    color:white;
+    background-color: rgb(2, 195, 40);
+}
+.datadisplay4{
+    margin-left: 20px;
+    width:210px;
+    height:110px;
+    padding-left: 10px;
+    color:white;
+    background-color: rgb(226, 26, 26);
+}
+.icondata{
+    margin-top:15px;
+}
+.paradata{
+    margin-top:-5px;
+}

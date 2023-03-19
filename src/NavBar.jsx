@@ -40,15 +40,15 @@ const NavBar = () => {
           <hr/>
           <ul className="bor">
             <li className="space1"> 
-                <DashboardCustomizeRoundedIcon className="dash" sx={{ fontSize: "15px",marginTop:1}}/>    
-                <Link to="/home" className="under1">
+                <DashboardCustomizeRoundedIcon className="dash" sx={{ fontSize:"15px", marginTop:1}}/>    
+                <Link to="/dashboard" className="under1">
                 <spam className="idea"> Dashboard</spam>
                 </Link>
               </li>
               
             <li className="space">
-              <DnsRoundedIcon className="dash" sx={{ fontSize: "15px",marginTop:1}}/>
-              <Link to="/about" className="under">
+              <DnsRoundedIcon className="dash" sx={{ fontSize:"15px",marginTop:1}}/>
+              <Link to="/lookup" className="under">
                 Lookup Table
               </Link>
             </li>
@@ -66,11 +66,11 @@ const NavBar = () => {
       ) : (
         <div>
           <li>
-            <Link to="/home" >Home
+            <Link to="/dashboard" >Home
             </Link>
           </li>
           <li>
-            <Link to="/about" >
+            <Link to="/lookup" >
               About
             </Link>
           </li>

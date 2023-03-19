@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Login";
-import Home from "./Home";
-import About from "./About";
+import Dashboard from "./Dashboard";
+import Lookup from "./Lookup";
 import Signup from "./Signup";
 import "./styles/App.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,9 +31,9 @@ function App() {
         <spam><Routes>
           {userlogin.loginstatus.status && (
             <>
-              <Route path="/home" element={<Home />}></Route>
-              <Route path="/about" element={<About />}></Route>
-              <Route path="*" element={<Home />}></Route>
+              <Route path="/dashboard" element={<Dashboard />}></Route>
+              <Route path="/lookup" element={<Lookup />}></Route>
+              <Route path="*" element={<Dashboard />}></Route>
             </>
           )}
           {!userlogin.loginstatus.status && (
