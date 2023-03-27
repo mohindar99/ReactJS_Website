@@ -1,60 +1,59 @@
-.maindiv1{
-    margin:-440px 0px 50px 810px;
-    padding:10px 0px 3px 14px;
-    width: 23em;
-    height:28em;
-    font-family: 'Jost', sans-serif;
-    letter-spacing: 1px;
-    line-height:13px;
-    background-color: white;
-    filter: drop-shadow(0 0 0.75rem rgb(217, 204, 206));
+.maindiv1 {
+  margin: -410px 0px 50px 810px;
+  padding: 10px 0px 3px 14px;
+  width: 23em;
+  height: 24em;
+  font-family: "Jost", sans-serif;
+  letter-spacing: 1px;
+  line-height: 13px;
+  background-color: white;
+  filter: drop-shadow(0 0 0.75rem rgb(217, 204, 206));
 }
-.sim1{
-margin-bottom: 6px;
+.sim1 {
+  margin-bottom: 6px;
 }
-.sim2{
-    margin-bottom: 6px;
+.sim2 {
+  margin-bottom: 6px;
 }
-.sim3{
-    margin-bottom: 6px;
+.sim3 {
+  margin-bottom: 6px;
 }
 
 ::placeholder {
-    color: rgba(168, 162, 162, 0.896);
-    opacity: 1; 
-    font-size: medium;
-    font-family: 'Jost', sans-serif;
-    letter-spacing: 3px;
-  }
+  color: rgba(168, 162, 162, 0.896);
+  opacity: 1;
+  font-size: medium;
+  font-family: "Jost", sans-serif;
+  letter-spacing: 3px;
+}
 
-.photo{
-    width:470px;
-    height:410px;
-    margin-top: 120px;
-    margin-left:30px
+.photo {
+  width: 470px;
+  height: 410px;
+  margin-top: 120px;
+  margin-left: 30px;
 }
-.spam1{
-
+.spam1 {
 }
-.spam2{
-    margin-left: 70px;
+.spam2 {
+  margin-left: 70px;
 }
-.spam3{
-    color:red;
-    font-weight: bold;
+.spam3 {
+  color: red;
+  font-weight: bold;
 }
-.input1{
-    width:340px;
-    height:25px;
+.input1 {
+  width: 340px;
+  height: 25px;
 }
-.under{
-    text-decoration: none;
+.under {
+  text-decoration: none;
 }
-.submit{
-    margin-top: 4px;
-    margin-bottom: 0px;  
+.submit {
+  margin-top: 4px;
+  margin-bottom: 0px;
 }
-.para{
-    margin-top: 10px;
-    margin-bottom: 10px;  
+.para {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

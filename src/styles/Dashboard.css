@@ -23,6 +23,7 @@
     padding-left: 10px;
     color:white;
     background-color: rgb(27, 27, 163);
+    border-radius:6px;
 }
 .datadisplay2{
     margin-left: 20px;
@@ -31,6 +32,7 @@
     padding-left: 10px;
     color:white;
     background-color: rgb(198, 195, 9);
+    border-radius:6px;
 }
 .datadisplay3{
     margin-left: 20px;
@@ -39,18 +41,22 @@
     padding-left: 10px;
     color:white;
     background-color: rgb(2, 195, 40);
+    border-radius:6px;
 }
 .datadisplay4{
     margin-left: 20px;
-    width:210px;
+    width:220px;
     height:110px;
     padding-left: 10px;
     color:white;
     background-color: rgb(226, 26, 26);
+    border-radius:6px;
 }
 .icondata{
     margin-top:15px;
 }
 .paradata{
     margin-top:-5px;
+    font-size: 16px;
+
 }

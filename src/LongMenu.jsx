@@ -9,6 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 import { useState } from "react";
 import "./styles/Items.css";
+import Form1 from "./Form1";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -53,7 +54,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function LongMenu() {
+export default function LongMenu(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -63,14 +64,9 @@ export default function LongMenu() {
     setAnchorEl(null);
   };
 
-  const edit = () => {
-    console.log("edit");
-    setAnchorEl(null);
-  };
-  const deleted = () => {
+  const handleDelete = () => { 
     console.log("deleted");
-    setAnchorEl(null);
-  };
+  }
 
   return (
     <div>
@@ -93,14 +89,14 @@ export default function LongMenu() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem className="editedme" disableRipple onClick={edit} >
-          <EditIcon/>
-           Edit
+        <MenuItem className="editedme" disableRipple> 
+          <EditIcon style={{ fill: '#0072ea' }} />
+          <Form1 name="Edit" id={props.id} />
         </MenuItem>
         <Divider sx={{ my: 0.5 }} />
-        <MenuItem className="deleteme" onClick={deleted} disableRipple >
-          <DeleteIcon/>
-          Delete
+        <MenuItem className="deleteme" disableRipple onClick={handleDelete}>
+        <DeleteIcon style={{ fill: "red" }}/>
+         <button className="deletebutton">Delete</button> 
         </MenuItem>
       </StyledMenu>
     </div>

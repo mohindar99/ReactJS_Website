@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { loginStatus } from "./store/slices/loginSlice";
 import sign from "./assets/sign.jpg";
 import { Link } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -14,6 +15,8 @@ const Login = (props) => {
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [cookies, setCookie] = useCookies(['user']);
+
 
   let allUsers = props.loginuser;
   let matchedDetails;
@@ -38,6 +41,11 @@ const Login = (props) => {
     }
   };
 
+  const setcookie = () => { 
+    setCookie('emailID', email, { path: 'http://127.0.0.1:5173/login' });
+    setCookie('passID', password, { path: 'http://127.0.0.1:5173/login' });
+  }
+
   return (
     <div>
       <img src={sign} className="photo2" />
@@ -48,6 +56,7 @@ const Login = (props) => {
           type="email"
           className="inputbox"
           placeholder="Enter a valid Email address"
+          defaultValue={cookies.emailID}
           onChange={(e) => setemail(e.target.value)}
         /> 
           <h4 className="pass">Password</h4>
@@ -55,10 +64,11 @@ const Login = (props) => {
             type="password"
             className="inputbox1"
             placeholder="Enter Password"
+            defaultValue={cookies.passID}
             onChange={(e) => setpassword(e.target.value)}
         />
         <div className="check">
-          <input type="checkbox" />
+          <input type="checkbox" onClick={setcookie} />
           <spam className="spam4">Remember me</spam>
           <spam className="spam5">Forgot Password?</spam>
           </div>

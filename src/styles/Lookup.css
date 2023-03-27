@@ -1,16 +1,22 @@
 .mymain{ 
-    width:985px;
+    width:990px;
     height: 580px;
     padding-left:25px;
+ 
 }
-
-.all{
+.pag{
+    margin-left: 300px;
+    margin-top:-20px;
+}
+.all,.showing{
     display: flex;
 }
 .tablename{
     font-family: 'Nunito', sans-serif;
     font-size: 25px;
-
+}
+.spacing{
+    margin-left: 870px;
 }
 table{
  border:2px solid rgb(255, 255, 255);
@@ -39,12 +45,10 @@ td{
     border-collapse: collapse;
     font-size:medium;
 }
-.adding{
-    margin-left: 870px;
-    color:orange;
-}
+
 .data{
     font-family: 'Nunito', sans-serif;
+    margin-top: -10px;
 
 }
 .btn{
