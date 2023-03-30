@@ -1,0 +1,32 @@
+.filterout{
+    padding-top: 30px;
+    padding-left: 15px;
+}
+.mypara{
+    font-family: 'Jost', sans-serif;
+    font-weight: bold;
+}
+
+.mypara1{
+    font-family: 'Jost', sans-serif;
+    margin-top: -20px;
+    margin-left: -15px;
+    background-color: rgb(110, 148, 230);
+    letter-spacing: 2px;
+}
+
+.textinput1{
+    width:250px;
+    height:30px;
+    margin-top:-90px;
+}
+.textinput2{
+    width:250px;
+    height:30px;
+    margin-top:-90px;
+}
+.textinput3{
+    width:250px;
+    height:30px;
+    margin-top:-90px;
+}

@@ -7,9 +7,8 @@ import sign from "./assets/final_login.jpg";
 import Button from "@mui/material/Button";
 import InputIcon from "@mui/icons-material/Input";
 
+const Signup = () => {
 
-const Signup = (props) => {
-  const [users, setusers] = useState([]);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -30,11 +29,11 @@ const Signup = (props) => {
       seterror("please enter valid email");
     }
   };
-  useEffect(() => {
-    if (users) {
-      props.getter(users);
-    }
-  }, [users]);
+  // useEffect(() => {
+  //   if (users) {
+  //     props.getter(users);
+  //   }
+  // }, [users]);
 
   const emailhandler = (e) => {
     setemail(e.target.value);

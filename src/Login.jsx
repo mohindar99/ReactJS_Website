@@ -1,49 +1,86 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/Login.css";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { loginStatus } from "./store/slices/loginSlice";
 import sign from "./assets/sign.jpg";
 import { Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
+import axios from "axios";
+import { addToken } from "../src/store/slices/loginApi"
 
-const Login = (props) => {
+const Login = () => {
   const dispatch = useDispatch();
+
+  const API = useSelector((state) => { 
+    return state.loginAPI.API;
+  })
+
+  // const token = useSelector((state) => { 
+  //   return state.loginAPI.refreshToken;
+  // })
+
   const navigate = useNavigate();
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const [cookies, setCookie] = useCookies(['user']);
-
-
-  let allUsers = props.loginuser;
-  let matchedDetails;
-
+  const [apiData, setApiData] = useState("");
+  const [cookies, setCookie , removeCookie] = useCookies(['user']);
   const [error, seterror] = useState("");
 
-  const clickhandler1 = () => {
-    if (email && password) {
-      matchedDetails = allUsers.filter((val) => {
-        return val.email == email && val.password == password;
-      });
-      if (matchedDetails[0].email && matchedDetails[0].password) {
-        localStorage.setItem("email", email);
-        localStorage.setItem("password", password);
-        dispatch(loginStatus(true));
-        //props.status(true);
-        seterror("");
-        navigate("/home");
-      }
-    } else {
-      seterror("enter user details");
+  let setpassData = {
+    "email": "",
+    "password":""
+  };
+
+  const getApiData = async (url) => {
+    try {
+      const res = await axios.post(url, setpassData);
+      setApiData(res.data);
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
-  const setcookie = () => { 
-    setCookie('emailID', email, { path: 'http://127.0.0.1:5173/login' });
-    setCookie('passID', password, { path: 'http://127.0.0.1:5173/login' });
+  const clickhandler1 = () => {
+    if (email && password) {
+      if (apiData.status == "success") {
+        localStorage.setItem("token",apiData.token);
+        dispatch(addToken(apiData.token));
+        dispatch(loginStatus(true));
+        seterror("");
+        navigate("/Dashboard");
+      }
+    }
+    else { 
+      seterror('Enter valid email and password');
+    }
+  };
+
+  useEffect(() => {
+    setpassData = {
+      "email": email,
+      "password": password,
+    };
+    getApiData(API);
+  }, [email, password]);
+  
+  const setcookie = (e) => { 
+    // if (cookies.emailID && cookies.passID) {
+    //   removeCookie('emailID',{ path: 'http://127.0.0.1:5173/login' });
+    //   removeCookie('passID', { path: 'http://127.0.0.1:5173/login' })
+    // }else {
+    //   setCookie('emailID', email, { path: 'http://127.0.0.1:5173/login' });
+    //   setCookie('passID', password, { path: 'http://127.0.0.1:5173/login' });
+    // }
+    if (e.target.checked) {
+      setCookie('emailID', email, { path: 'http://127.0.0.1:5173/login' });
+      setCookie('passID', password, { path: 'http://127.0.0.1:5173/login' });
+    } else { 
+      removeCookie('emailID',{ path: 'http://127.0.0.1:5173/login' });
+      removeCookie('passID', { path: 'http://127.0.0.1:5173/login' })
+    }
   }
 
   return (
@@ -51,6 +88,7 @@ const Login = (props) => {
       <img src={sign} className="photo2" />
       <div className="outer">
         <h1 className="signin">SignIn </h1>
+        <h3 className="error">{error}</h3>
         <h4 className="email">Email Address</h4>
         <input
           type="email"
@@ -68,12 +106,12 @@ const Login = (props) => {
             onChange={(e) => setpassword(e.target.value)}
         />
         <div className="check">
-          <input type="checkbox" onClick={setcookie} />
+          <input type="checkbox" onChange={setcookie} value="remember"  />
           <spam className="spam4">Remember me</spam>
           <spam className="spam5">Forgot Password?</spam>
           </div>
 
-        <Button variant="contained" color="success" onClick={clickhandler1}>
+        <Button variant="contained" color="success" onClick={clickhandler1} >
           Login
         </Button>
         <p className="reg1">
@@ -82,7 +120,7 @@ const Login = (props) => {
             <spam className="reg">Register</spam>
           </Link>
         </p>
-        <h1>{error}</h1>
+        
       </div>
     </div>
   );

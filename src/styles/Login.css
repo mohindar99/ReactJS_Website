@@ -1,8 +1,8 @@
 .outer{
-    margin: -420px 30px 0px 840px;
-    width:300px;
-    height:320px;
-    padding:30px 30px 30px 15px;
+    margin: -420px 30px 0px 820px;
+    width:330px;
+    height:340px;
+    padding:30px 30px 30px 30px;
     font-family: 'Jost', sans-serif;
     background-color:white;
 }
@@ -10,6 +10,9 @@
     width:400px;
     height:400px;
     margin:100px 20px 30px 50px;
+}
+.error{
+    color:red;
 }
 
 .spam5{

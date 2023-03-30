@@ -10,8 +10,6 @@ import { loginStatus } from "./store/slices/loginSlice";
 
 function App() {
   const dispatch = useDispatch();
-  const [user, setuser] = useState([]);
-
   const userlogin = useSelector((state) => {
     return state.login;
   });
@@ -20,7 +18,7 @@ function App() {
   // const [loginstatus, setloginstatus] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("email")) {
+    if (localStorage.getItem("token")) {
       dispatch(loginStatus(true));
     }
   }, []);
@@ -38,12 +36,12 @@ function App() {
           )}
           {!userlogin.loginstatus.status && (
             <>
-              <Route path="/Login" element={<Login loginuser={user} />}></Route>
+              <Route path="/Login" element={<Login/>}></Route>
               <Route
                 path="/signup"
-                element={<Signup getter={setuser} />}
+                element={<Signup/>}
               ></Route>
-              <Route path="*" element={<Login loginuser={user} />}></Route>
+              <Route path="*" element={<Login />}></Route>
             </>
           )}
 
