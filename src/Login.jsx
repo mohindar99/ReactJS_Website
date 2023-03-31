@@ -10,6 +10,7 @@ import { useCookies } from 'react-cookie';
 import axios from "axios";
 import { addToken } from "../src/store/slices/loginApi"
 
+
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -22,21 +23,18 @@ const Login = () => {
   // })
 
   const navigate = useNavigate();
-
-  const [email, setemail] = useState("");
-  const [password, setpassword] = useState("");
   const [apiData, setApiData] = useState("");
   const [cookies, setCookie , removeCookie] = useCookies(['user']);
   const [error, seterror] = useState("");
 
-  let setpassData = {
+  const [passData, setPassData] = useState({
     "email": "",
     "password":""
-  };
-
+  });
+  
   const getApiData = async (url) => {
     try {
-      const res = await axios.post(url, setpassData);
+      const res = await axios.post(url,passData);
       setApiData(res.data);
     } catch (error) {
       console.log(error.message);
@@ -44,7 +42,7 @@ const Login = () => {
   };
 
   const clickhandler1 = () => {
-    if (email && password) {
+    if (passData.email && passData.password) {
       if (apiData.status == "success") {
         localStorage.setItem("token",apiData.token);
         dispatch(addToken(apiData.token));
@@ -58,13 +56,16 @@ const Login = () => {
     }
   };
 
-  useEffect(() => {
-    setpassData = {
-      "email": email,
-      "password": password,
-    };
-    getApiData(API);
-  }, [email, password]);
+  const inputEvent = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setPassData((pre) => {
+      return {
+        ...pre,
+        [name]:value,
+      }
+    })
+  };
   
   const setcookie = (e) => { 
     // if (cookies.emailID && cookies.passID) {
@@ -75,16 +76,29 @@ const Login = () => {
     //   setCookie('passID', password, { path: 'http://127.0.0.1:5173/login' });
     // }
     if (e.target.checked) {
-      setCookie('emailID', email, { path: 'http://127.0.0.1:5173/login' });
-      setCookie('passID', password, { path: 'http://127.0.0.1:5173/login' });
+      setCookie('emailID', email, { path: 'http://127.0.0.1:5173/login'});
+      setCookie('passID', password, { path: 'http://127.0.0.1:5173/login'});
     } else { 
-      removeCookie('emailID',{ path: 'http://127.0.0.1:5173/login' });
-      removeCookie('passID', { path: 'http://127.0.0.1:5173/login' })
+      removeCookie('emailID',{ path: 'http://127.0.0.1:5173/login'});
+      removeCookie('passID', { path: 'http://127.0.0.1:5173/login'})
     }
   }
+  
+  useEffect(() => {
+    if (cookies.emailID && cookies.passID) { 
+      setPassData({
+        "email":cookies.emailID,
+        "password":cookies.passID
+      })
+    }
+    console.log(passData);
+    getApiData(API);
+  }, [passData.email,passData.password]);
+  
 
   return (
     <div>
+      <form onSubmit={clickhandler1}>
       <img src={sign} className="photo2" />
       <div className="outer">
         <h1 className="signin">SignIn </h1>
@@ -92,18 +106,20 @@ const Login = () => {
         <h4 className="email">Email Address</h4>
         <input
           type="email"
+          name="email"
           className="inputbox"
           placeholder="Enter a valid Email address"
-          defaultValue={cookies.emailID}
-          onChange={(e) => setemail(e.target.value)}
+          Value={cookies.emailID}
+          onChange={inputEvent}
         /> 
           <h4 className="pass">Password</h4>
           <input
             type="password"
+            name="password"
             className="inputbox1"
             placeholder="Enter Password"
-            defaultValue={cookies.passID}
-            onChange={(e) => setpassword(e.target.value)}
+            Value={cookies.passID}
+            onChange={inputEvent}
         />
         <div className="check">
           <input type="checkbox" onChange={setcookie} value="remember"  />
@@ -111,7 +127,7 @@ const Login = () => {
           <spam className="spam5">Forgot Password?</spam>
           </div>
 
-        <Button variant="contained" color="success" onClick={clickhandler1} >
+        <Button type="submit" variant="contained" color="success" >
           Login
         </Button>
         <p className="reg1">
@@ -120,8 +136,8 @@ const Login = () => {
             <spam className="reg">Register</spam>
           </Link>
         </p>
-        
-      </div>
+        </div>
+      </form>
     </div>
   );
 };

@@ -32,11 +32,6 @@ export default function SearchDrawer(props) {
     dispatch(addTotalChange());
     props.click(true);
 
-    // if (firstName &&lastName==false&& Email==false) {
-    //   let fname = `&firstname=${firstName}`;
-    //   dispatch(addFirstname(fname));
-    //   dispatch(addCurrentFirstname(firstName));
-      
     //   props.click(true);
     // } else if (lastName &&firstName==false&&Email==false) {
     //   let lname = `&lastname=${lastName}`;
@@ -54,6 +49,7 @@ export default function SearchDrawer(props) {
     //   props.click(true);
     // }
   };
+
 
   useEffect(() => {
     dispatch(addCurrentFirstname(firstName));
@@ -73,9 +69,9 @@ export default function SearchDrawer(props) {
           <p className="mypara">Filter By First Name</p>
           <input type="text" className="textinput1" placeholder="enter first name" onChange={(e) =>{setfirstName(e.target.value) } } />
           <p className="mypara">Filter By Last Name</p>
-          <input type="text" className="textinput2" onChange={(e) => { setlastName(e.target.value) }} placeholder="enter last name" />
+          <input type="text" className="textinput2" onChange={(e) => {setlastName(e.target.value) }} placeholder="enter last name" />
           <p className="mypara">Filter By Email</p>
-          <input type="text" className="textinput3" onChange={(e) => { setEmail(e.target.value) }} placeholder="enter email" />
+          <input type="text" className="textinput3" onChange={(e) => {setEmail(e.target.value) }} placeholder="enter email" />
           <br />
           <Button variant="contained" sx={{ marginTop: "20px" }} onClick={Search}>Filter</Button>
         </div>
