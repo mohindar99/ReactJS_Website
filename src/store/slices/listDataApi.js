@@ -24,7 +24,7 @@ const listDataApi = createSlice({
             console.log(updatedurl3);
             state.previousFirstName=state.changeFirstName;
             state.previousLastName=state.changeLastName;
-            state.previousEmail=state.changeEmail;
+            state.previousEmail = state.changeEmail;
         },
         
         addPage(state, action) {
@@ -34,7 +34,7 @@ const listDataApi = createSlice({
         },
         
         addCurrentPage(state, action) { 
-            state.currentPage = action.payload;
+            state.currentPage = action.payload; 
         },
         addCurrentFirstname(state, action) { 
             state.changeFirstName = action.payload;
