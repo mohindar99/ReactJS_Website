@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useState,useEffect } from "react";
-import "./styles/Form1.css"
+import "../styles/Form1.css"
 import axios from "axios";
 
 const style = {

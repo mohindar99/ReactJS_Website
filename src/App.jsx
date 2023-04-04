@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
-import Lookup from "./Lookup";
-import Signup from "./Signup";
+import Login from "./screens/Login";
+import Dashboard from "./screens/Dashboard";
+import Lookup from "./screens/Lookup";
+import Signup from "./screens/Signup";
 import "./styles/App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { loginStatus } from "./store/slices/loginSlice";

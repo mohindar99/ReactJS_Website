@@ -1,14 +1,14 @@
 import React, { useState ,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./styles/Login.css";
+import "../styles/Login.css";
 import Button from "@mui/material/Button";
 import { useDispatch , useSelector } from "react-redux";
-import { loginStatus } from "./store/slices/loginSlice";
-import sign from "./assets/sign.jpg";
+import { loginStatus } from "../store/slices/loginSlice";
+import sign from "../assets/sign.jpg";
 import { Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
 import axios from "axios";
-import { addToken } from "../src/store/slices/loginApi"
+import { addToken } from "../store/slices/loginApi"
 
 
 const Login = () => {
@@ -91,7 +91,6 @@ const Login = () => {
         "password":cookies.passID
       })
     }
-    console.log(passData);
     getApiData(API);
   }, [passData.email,passData.password]);
   

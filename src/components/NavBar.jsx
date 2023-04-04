@@ -2,11 +2,11 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { loginStatus } from "./store/slices/loginSlice";
-import "./styles/NavBar.css"
-import DashboardCustomizeRoundedIcon from '@mui/icons-material/DashboardCustomizeRounded';
-import DnsRoundedIcon from '@mui/icons-material/DnsRounded';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import { loginStatus } from "../store/slices/loginSlice";
+import "../styles/NavBar.css";
+import DashboardCustomizeRoundedIcon from "@mui/icons-material/DashboardCustomizeRounded";
+import DnsRoundedIcon from "@mui/icons-material/DnsRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -37,26 +37,35 @@ const NavBar = () => {
       {currentstatus.loginstatus.status ? (
         <div className="outside">
           <h1 className="logo">LOGO</h1>
-          <hr/>
+          <hr />
           <ul className="bor">
-            <li className="space1"> 
-                <DashboardCustomizeRoundedIcon className="dash" sx={{ fontSize:"15px", marginTop:1}}/>    
-                <Link to="/dashboard" className="under1">
+            <li className="space1">
+              <DashboardCustomizeRoundedIcon
+                className="dash"
+                sx={{ fontSize: "15px", marginTop: 1 }}
+              />
+              <Link to="/dashboard" className="under1">
                 <spam className="idea"> Dashboard</spam>
-                </Link>
-              </li>
-              
+              </Link>
+            </li>
+
             <li className="space">
-              <DnsRoundedIcon className="dash" sx={{ fontSize:"15px",marginTop:1}}/>
+              <DnsRoundedIcon
+                className="dash"
+                sx={{ fontSize: "15px", marginTop: 1 }}
+              />
               <Link to="/lookup" className="under">
                 Lookup Table
               </Link>
             </li>
           </ul>
-          <hr/>
-          <ul className ="bor"> 
+          <hr />
+          <ul className="bor">
             <li className="space">
-            <LogoutRoundedIcon className="dash" sx={{ fontSize: "15px",marginTop:1}}/>
+              <LogoutRoundedIcon
+                className="dash"
+                sx={{ fontSize: "15px", marginTop: 1 }}
+              />
               <Link to="/login" className="under" onClick={clickhandler}>
                 {login}
               </Link>
@@ -66,18 +75,13 @@ const NavBar = () => {
       ) : (
         <div>
           <li>
-            <Link to="/dashboard" >Home
-            </Link>
+            <Link to="/dashboard">Home</Link>
           </li>
           <li>
-            <Link to="/lookup" >
-              About
-            </Link>
+            <Link to="/lookup">About</Link>
           </li>
           <li>
-            <Link to="/signup">
-              Signup
-            </Link>
+            <Link to="/signup">Signup</Link>
           </li>
           <li>
             {" "}

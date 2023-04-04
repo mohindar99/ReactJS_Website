@@ -1,13 +1,13 @@
 import React from "react";
-import { useEffect,useState } from "react";
-import "./styles/Dashboard.css";
-import NavBar from "./NavBar";
+import { useEffect, useState } from "react";
+import "../styles/Dashboard.css";
+import NavBar from "../components/NavBar";
 import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 import ForumRoundedIcon from "@mui/icons-material/ForumRounded";
-import ListRoundedIcon from '@mui/icons-material/ListRounded';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import ConfirmationNumberRoundedIcon from '@mui/icons-material/ConfirmationNumberRounded';
+import ListRoundedIcon from "@mui/icons-material/ListRounded";
+import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
+import ConfirmationNumberRoundedIcon from "@mui/icons-material/ConfirmationNumberRounded";
 import axios from "axios";
 
 const Dashboard = () => {
@@ -16,12 +16,12 @@ const Dashboard = () => {
   const [commentsData, setcommentsData] = useState([]);
   const [albumsData, setalbumsData] = useState([]);
   const [photosData, setphotosData] = useState([]);
+  const [file, setfile] = useState();
 
   const getpostsData = async (url) => {
     try {
       const res = await axios.get(url);
       setpostsData(res.data);
-      
     } catch (error) {
       console.log(error.message);
     }
@@ -51,11 +51,32 @@ const Dashboard = () => {
     }
   };
 
+  const Changing = (e) => { 
+    let arr = [1, 2, 3, 4];
+    console.log(arr);
+    setfile(e.target.files[0]);
+    console.log(e.target.files[0]);
+  }
+
+  // uploading the file which got fetched 
+  const uploaded = () => {
+    const formData = new FormData();
+    formData.append("file", file);
+    fetch("url", {
+      method: "POST",
+      body : formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("success", result);
+      });
+  };
+
   useEffect(() => {
     getpostsData(`${API}/posts`);
     getcommentsData(`${API}/comments`);
-    getalbumsData(`${API}/albums`)
-    getphotosData(`${API}/photos`)
+    getalbumsData(`${API}/albums`);
+    getphotosData(`${API}/photos`);
   }, []);
 
   return (
@@ -73,31 +94,34 @@ const Dashboard = () => {
 
         <div className="mydisplay">
           <div className="datadisplay1">
-          <ForumRoundedIcon className="icondata"/>
+            <ForumRoundedIcon className="icondata" />
             <p className="paradata">{postsData.length} New Posts!</p>
             <hr className="dataline" />
-            <p style={{fontSize:13}}>View Details</p>
+            <p style={{ fontSize: 13 }}>View Details</p>
           </div>
           <div className="datadisplay2">
-          <ListRoundedIcon className="icondata"/>
+            <ListRoundedIcon className="icondata" />
             <p className="paradata">{commentsData.length} New Comments!</p>
             <hr className="dataline" />
-            <p style={{fontSize:13}}>View Details</p>
+            <p style={{ fontSize: 13 }}>View Details</p>
           </div>
           <div className="datadisplay3">
-          <ShoppingCartRoundedIcon className="icondata"/>
+            <ShoppingCartRoundedIcon className="icondata" />
             <p className="paradata">{albumsData.length} New Albums!</p>
             <hr className="dataline" />
-            <p style={{fontSize:13}}>View Details</p>
+            <p style={{ fontSize: 13 }}>View Details</p>
           </div>
           <div className="datadisplay4">
-          <ConfirmationNumberRoundedIcon className="icondata"/>
+            <ConfirmationNumberRoundedIcon className="icondata" />
             <p className="paradata">{photosData.length} New Photos!</p>
             <hr className="dataline" />
-            <p style={{fontSize:13}}>View Details</p>
+            <p style={{ fontSize: 13 }}>View Details</p>
           </div>
         </div>
+        <input type="file" name="file" className="fileUpload" onChange={Changing} />
+        <button onClick={uploaded}>Upload</button>
       </div>
+      
     </div>
   );
 };

@@ -11,6 +11,10 @@
 .all,.showing{
     display: flex;
 }
+.loading{
+    margin-left:430px;
+    margin-top: 50px;
+}
 .tablename{
     font-family: 'Nunito', sans-serif;
     font-size: 25px;

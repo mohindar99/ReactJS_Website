@@ -1,9 +1,9 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { Link } from "react-router-dom";
 import validator from "validator";
-import "./styles/Signup.css";
-import sign from "./assets/final_login.jpg";
+import "../styles/Signup.css";
+import sign from "../assets/final_login.jpg";
 import Button from "@mui/material/Button";
 import InputIcon from "@mui/icons-material/Input";
 
